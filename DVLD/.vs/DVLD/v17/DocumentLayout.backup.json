@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "M:\\MyGitHub\\DVLD Project Demo\\DVLD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E5310D84-FE0F-4557-9E4B-CA68E54D43F0}|..\\DVLD_DataAccess\\DVLD_DataAccess.csproj|m:\\mygithub\\dvld project demo\\dvld_dataaccess\\clspersondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5310D84-FE0F-4557-9E4B-CA68E54D43F0}|..\\DVLD_DataAccess\\DVLD_DataAccess.csproj|m:\\mygithub\\dvld project demo\\dvld_dataaccess\\clsdataaccesssettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{007a3a6b-b5b2-454d-a2bd-cf929f989be2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsDataAccessSettings.cs",
+              "DocumentMoniker": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsDataAccessSettings.cs",
+              "RelativeDocumentMoniker": "..\\DVLD_DataAccess\\clsDataAccessSettings.cs",
+              "ToolTip": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsDataAccessSettings.cs",
+              "RelativeToolTip": "..\\DVLD_DataAccess\\clsDataAccessSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T11:36:02.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsPersonData.cs",
+              "DocumentMoniker": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsPersonData.cs",
+              "RelativeDocumentMoniker": "..\\DVLD_DataAccess\\clsPersonData.cs",
+              "ToolTip": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsPersonData.cs",
+              "RelativeToolTip": "..\\DVLD_DataAccess\\clsPersonData.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAGoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T11:33:14.219Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
