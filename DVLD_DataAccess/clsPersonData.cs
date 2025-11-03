@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -157,10 +158,169 @@ namespace DVLD_DataAccess
                                 VALUES (@FirstName,@SecondName,@ThirdName,@LastName,@NationalNo,@DateOfBirth,@Gendor,@Address,@Phone,@Email,@NationalityCountryID,@ImagePath);
                            SELECT SCOPE_IDENTITY();";
 
+            SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.AddWithValue("@FirstName", FirstName);
+            command.Parameters.AddWithValue("@SecondName", SecondName);
 
+            if (ThirdName != "" && ThirdName != null)
+                command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            else
+                command.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+
+            command.Parameters.AddWithValue("@LastName", LastName);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue("@Gendor", Gendor);
+            command.Parameters.AddWithValue("@Address", Address);
+            command.Parameters.AddWithValue("@Phone", Phone);
+
+            if (Email != "" && Email != null)
+                command.Parameters.AddWithValue("@Email", Email);
+            else
+                command.Parameters.AddWithValue("@Emial", DBNull.Value);
+
+            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
+
+            if (ImagePath != "" && ImagePath != null)
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue(@"ImagePath", DBNull.Value);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                    PersonID = insertedID;
+
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return PersonID;
 
         }
+
+        public static bool UpdatePerson(int PersonID,string FirstName,string SecondName,string ThirdName,string LastName,
+            string NationalNo,DateTime DateOfBirth,short Gendor,string Address,string Phone,string Email,
+            int NationalityCountryID,string ImagePath)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Update People
+                           SET  FirstName   = @FirstName,
+                                SecondName  = @SecondName,
+                                ThirdName   = @ThirdName,
+                                LastName    = @LastName,
+                                NationalNo  = @NationalNo,
+                                DateOfBirth = @DateOfBirth,
+                                Gendor  = @Gendor,
+                                Address = @Address,
+                                Phone   = @Phone,
+                                Email   = @Email,
+                                NationalityCountryID = @NationalityCountryID,
+                                ImagePath = @ImagePath
+                           
+                           WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@FirstName", FirstName);
+            command.Parameters.AddWithValue("@SecondName", SecondName);
+
+            if (ThirdName != "" && ThirdName != null)
+                command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            else
+                command.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+
+            command.Parameters.AddWithValue("@LastName", LastName);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+            command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue("@Gendor", Gendor);
+            command.Parameters.AddWithValue("@Address", Address);
+            command.Parameters.AddWithValue("@Phone", Phone);
+
+            if (Email != "" && Email != null)
+                command.Parameters.AddWithValue("@Email", Email);
+            else
+                command.Parameters.AddWithValue("@Email", DBNull.Value);
+
+            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
+
+            if (ImagePath != "" && ImagePath != null)
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rowsAffected > 0;
+        }
+
+        public static DataTable GetAllPeople()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Person.PersonID,People.NationalNo,People.FirstName
+                            People.SecondName,People.ThirdName,People.LastName
+                            People.DateOfBirth,People.Gendor,
+                            CASE  
+                                WHEN People.Gendor=0 THEN 'Male'
+                                ELSE 'Female'
+                            END AS GendorCaption,
+                            People.Address,People.Phone,People.Email,People.NationalityCountryID,
+                            Countries.CountryName,People.ImagePath
+                           FROM People INNER JOIN Countries
+                           ON People.NationalityCountryID = Countries.CountryID
+                           ORDER BY People.FirstName;   ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+
 
     }
 }
