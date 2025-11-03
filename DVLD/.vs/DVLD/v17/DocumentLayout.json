@@ -4,9 +4,6 @@
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{E5310D84-FE0F-4557-9E4B-CA68E54D43F0}|..\\DVLD_DataAccess\\DVLD_DataAccess.csproj|m:\\mygithub\\dvld project demo\\dvld_dataaccess\\clspersondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E5310D84-FE0F-4557-9E4B-CA68E54D43F0}|..\\DVLD_DataAccess\\DVLD_DataAccess.csproj|m:\\mygithub\\dvld project demo\\dvld_dataaccess\\clsdataaccesssettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,7 +13,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -40,25 +37,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "clsDataAccessSettings.cs",
-              "DocumentMoniker": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsDataAccessSettings.cs",
-              "RelativeDocumentMoniker": "..\\DVLD_DataAccess\\clsDataAccessSettings.cs",
-              "ToolTip": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsDataAccessSettings.cs",
-              "RelativeToolTip": "..\\DVLD_DataAccess\\clsDataAccessSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T11:36:02.502Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "clsPersonData.cs",
               "DocumentMoniker": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsPersonData.cs",
               "RelativeDocumentMoniker": "..\\DVLD_DataAccess\\clsPersonData.cs",
               "ToolTip": "M:\\MyGitHub\\DVLD Project Demo\\DVLD_DataAccess\\clsPersonData.cs",
               "RelativeToolTip": "..\\DVLD_DataAccess\\clsPersonData.cs",
-              "ViewState": "AgIAACIBAAAAAAAAAAAwwEABAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAqwIEBAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-12T11:33:14.219Z",
               "EditorCaption": ""

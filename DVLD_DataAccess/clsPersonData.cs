@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO.IsolatedStorage;
 
 namespace DVLD_DataAccess
 {
@@ -276,7 +277,6 @@ namespace DVLD_DataAccess
             }
             return rowsAffected > 0;
         }
-
         public static DataTable GetAllPeople()
         {
             DataTable dt = new DataTable();
@@ -320,7 +320,98 @@ namespace DVLD_DataAccess
             }
             return dt;
         }
+        public static bool DeletePerson(int PersonID)
+        {
+            int rowsAffected = 0;
 
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
+            string query = @"DELETE FROM People
+                            WHERE PersonID = @PerosnID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PerosnID", PersonID);
+
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rowsAffected > 0;
+        }
+        public static bool IsPersonExist(int PersonID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Found=1 FROM People WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+
+        }
+        public static bool IsPersonExist(string NationalNo)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Found=1 FROM People WHERE NationalNo = @NationalNo;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex) { }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+
+        }
     }
 }
